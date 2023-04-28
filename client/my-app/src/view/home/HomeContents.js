@@ -6,7 +6,7 @@ function SideNavigation() {
         homeController.handleSubmit();
     };
   return (
-    <div style={{marginLeft: "280px"}}>
+    <div style={{}}>
     <h1>Welcome to my homepage!</h1>
       <p>Here is some information about me.</p>
       <button onClick={handleClick}></button>

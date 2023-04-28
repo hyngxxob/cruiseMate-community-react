@@ -4,4 +4,4 @@ function handleSubmit(data) {
     alert("clicked");
 }
   
-  export default { handleSubmit };
+  export default handleSubmit;
