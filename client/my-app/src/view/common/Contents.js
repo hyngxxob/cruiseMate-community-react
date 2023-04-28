@@ -5,7 +5,7 @@ import Home from '../home/Home';
 
 function SideNavigation(props) {
   return (
-    <div className={`${props.isNavOpen ? '' : 'sidenav--open--homecontents'}`}>
+    <div className={`${props.isNavOpen ? 'sidenav--close--contents' : 'sidenav--open--contents'}`}>
       <Router>
           <Routes>
             <Route path="/" element={<Home />} />

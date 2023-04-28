@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import NoticeCard from '../card/NoticeCard';
 // import SideNavigation from './SideNavigation';
+import '../../css/Home/Home.css'
 
 function Home() {
   function handleClick() {
@@ -8,36 +10,20 @@ function Home() {
   }
   
   return (
-    <div>
-      <h1>TEST</h1>
-      <p>hi</p>
-      <button onClick={handleClick}></button>
-      <table class="table">
-        <thead>
-            <tr>
-              <th scope="col">hi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            </tr>
-        </tbody>
-      </table>
+    <div style={{minWidth : '1000px'}}>
+      {/* <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/the-ultimate-guide-of-getting-around-in-indonesia/header2.jpg"></img> */}
+      <img src="https://seoulsky.lotteworld.com/seoulsky/images/kor/contents/img_UI-PC-SK-002_07.jpg" style={{width:'50%', paddingTop:'0px'}}></img>
+      <div style={{display: 'flex', flexDirection:'row'}}>
+        <div style={{flex : '1', padding : '32px'}}>
+          <NoticeCard/>
+          <NoticeCard/>
+          <NoticeCard/>
+          <NoticeCard/>
+        </div>
+        <div style={{flex : '0.3', padding : '32px'}}>
+
+        </div>
+      </div>
     </div>
   );
 }
