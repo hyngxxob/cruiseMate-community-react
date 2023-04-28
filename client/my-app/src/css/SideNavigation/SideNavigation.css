@@ -1,0 +1,58 @@
+.sidenav {
+    background-color: #333;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 56px;
+    left: -250px;
+    transition: all 0.3s ease;
+}
+
+.sidenav--open {
+left: 0;
+top: 56px;
+width: 250px;
+transition: all 0.4s ease;
+}
+
+.sidenav ul {
+list-style: none;
+padding: 0;
+margin: 0;
+text-align: center;
+}
+
+.sidenav ul li {
+margin: 15px 0;
+}
+
+.sidenav ul li a {
+display: block;
+color: #fff;
+font-size: 18px;
+text-decoration: none;
+}
+
+.nav-toggle {
+background-color: transparent;
+border: none;
+cursor: pointer;
+font-size: 25px;
+color: #fff;
+position: fixed;
+top: 20px;
+left: 20px;
+}
+
+.nav-toggle:focus {
+outline: none;
+}
+
+.nav-toggle i {
+padding-right: 10px;
+}
+
+.sidenav--open--homecontents {
+margin-left: 250px;
+transition: all 0.3s ease;
+}
