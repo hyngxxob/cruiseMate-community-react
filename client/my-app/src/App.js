@@ -16,7 +16,7 @@ function App() {
   };
   return (
     <div className="App">
-      <div style={{ position : 'fixed', width : '100%', zIndex : '1'}}>
+      <div className="Navigation-Container">
       <Navbar bg="light" variant="light" >
           <>
           {/* 컬랩스 버튼 */}
@@ -26,13 +26,6 @@ function App() {
 
           {/* 네비게이션 로고 */}
           <Navbar.Brand style={{margin : '0 8px'}} href="/">CruiseMate</Navbar.Brand>
-
-          {/* 네비게이션 메뉴 */}
-          <Nav className="ms-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/notice">공지사항</Nav.Link>
-            <Nav.Link href="#dropdown">Dropdown</Nav.Link>
-          </Nav>
           </>
       </Navbar>
       </div>

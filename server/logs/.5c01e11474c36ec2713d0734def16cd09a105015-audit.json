@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/Users/hyngxxob/Github/cruiseMate-community-react/server/logs/.5c01e11474c36ec2713d0734def16cd09a105015-audit.json",
+    "files": [
+        {
+            "date": 1685809822364,
+            "name": "/Users/hyngxxob/Github/cruiseMate-community-react/server/logs/2023-06-04.log",
+            "hash": "f67b6210bef09c6d7e917661a3a9d4805f29559c6afa807c96c3400abddc4ae7"
+        }
+    ],
+    "hashType": "sha256"
+}
