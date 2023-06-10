@@ -152,7 +152,7 @@ const login = async (req, res) => {
   let responseData = new ResponseData(requestData);
 
   try {
-
+    console.log("test");
     /** 필수 입력 필드 체크 */
     const fieldList = [
       DB_FIELD_NAME.USER_ID,
