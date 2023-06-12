@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\falco\\OneDrive\\바탕 화면\\github\\cruiseMate-community-react\\server\\logs\\.854e5819382983a23e78b3ea7746edcbd208a317-audit.json",
+    "files": [
+        {
+            "date": 1686499626942,
+            "name": "C:\\Users\\falco\\OneDrive\\바탕 화면\\github\\cruiseMate-community-react\\server\\logs\\2023-06-12.log",
+            "hash": "ced6677b95fa875526278ee8899b27044cee2815f3d6a2d3817f08ce04b8d5b0"
+        }
+    ],
+    "hashType": "sha256"
+}

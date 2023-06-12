@@ -49,10 +49,11 @@ class RequestData{
    * @param {object} 입력 data
    */
   initData = async(data) =>{
+    this.start();
     // 로컬
     if(data.headers.origin.indexOf("localhost") > 0 || data.headers.origin.indexOf("applicationstudio.cloud.sap") > 0 ){ 
     // if(1){ 
-      // this.start();
+      this.start();
 
       // const userInfo = await UserModel.selectUser(this, 'TESTUSER');
       // const viewAuth = await UserModel.viewAuth(this, userInfo.UUID);
@@ -224,6 +225,20 @@ class RequestData{
       }
     }
   }
+  /*
+   end = async (complete = true) => {
+  if (this.isConnected()) {
+    if (this.transaction) {
+      if (complete) {
+        await this.commit();
+      } else {
+        await this.rollback();
+      }
+    }
+    await this.release(); // 연결 반환
+  }
+}
+   */
 
   /**
    * transaction error 시 처리 사항

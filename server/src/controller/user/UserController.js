@@ -6,7 +6,7 @@
  */
 
 // 공통 라이브러리
-// const Logger = require('../../lib/logger');
+const Logger = require('../../lib/logger');
 // const JWT = require('../../lib/jwt');
 // const Util = require('../../lib/util');
 // const client = require('../../lib/rediscloud');
@@ -274,8 +274,95 @@ const controller = async (req, res) => {
   }
 };
 
+const insertSpot = async (req, res) => {
+
+  /**  요청 데이터  */
+  let requestData = new RequestData(req);
+
+  /**  응답 데이터  */
+  let responseData = new ResponseData(requestData);
+
+  try {
+
+    /** 필수 입력 필드 체크 */
+    // const fieldList = [
+    //   DB_FIELD_NAME.USER_ID,
+    // ];
+
+    /**  트랜젝션 여부 셋팅   */
+    await requestData.start(false);
+
+    /**  로그인 정보 조회    */
+
+    const drivespot = await UserModel.insertSpot(requestData, req.body);
+    // const userInfo = await UserModel.selectUser(requestData, requestData.getBodyValue(DB_FIELD_NAME.USER_ID));
+    if(drivespot){
+      responseData.setResponseCode(RESPONSE_CODE.SUCCESS);
+      responseData.setDataValue(RESPONSE_FIELD.DATA, drivespot);
+    }
+    else {
+      responseData.setResponseCode(RESPONSE_CODE.DB_ERROR);
+    }
+    // req.session.user = {...userInfo};
+  }
+  catch (e) {
+    Logger.error(e.stack);
+    /** 트랜잭션 롤백  */
+    await requestData.error();
+    responseData.setResponseErrCode(RESPONSE_CODE.CONTACT_ADMIN, e.stack);
+  }
+  finally {
+    /** 트랜잭션 종료 */
+    await requestData.end(responseData.isSuccess());
+    /** 데이터 응답 */
+    res.send(responseData);
+  }
+};
+
+const selectAllSpot = async (req, res) => {
+
+  /**  요청 데이터  */
+  let requestData = new RequestData(req);
+
+  /**  응답 데이터  */
+  let responseData = new ResponseData(requestData);
+
+  try {
+
+    /** 필수 입력 필드 체크 */
+    // const fieldList = [
+    //   DB_FIELD_NAME.USER_ID,
+    // ];
+
+    /**  트랜젝션 여부 셋팅   */
+    await requestData.start(false);
+
+    /**  로그인 정보 조회    */
+
+    const drivespot = await UserModel.selectAllSpot(requestData);
+    // const userInfo = await UserModel.selectUser(requestData, requestData.getBodyValue(DB_FIELD_NAME.USER_ID));
+
+    // req.session.user = {...userInfo};
+    responseData.setDataValue(RESPONSE_FIELD.DATA, drivespot);
+  }
+  catch (e) {
+    Logger.error(e.stack);
+    /** 트랜잭션 롤백  */
+    await requestData.error();
+    responseData.setResponseErrCode(RESPONSE_CODE.CONTACT_ADMIN, e.stack);
+  }
+  finally {
+    /** 트랜잭션 종료 */
+    await requestData.end(responseData.isSuccess());
+    /** 데이터 응답 */
+    res.send(responseData);
+  }
+};
+
 module.exports = {
   signUp,
   login,
   controller,
+  insertSpot,
+  selectAllSpot,
 };

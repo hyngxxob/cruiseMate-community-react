@@ -649,6 +649,7 @@ const getUserManuList = async (requestData) => {
   }
 };
 
+
 /**
  * test
  *  @param {RequestData} requestData  -  요청 데이터
@@ -676,6 +677,58 @@ const test = async (requestData) => {
 };
 
 
+/**
+ *  메뉴 List 조회
+ *  @param {RequestData} requestData  -  요청 데이터
+ *  @param  {Object} params           -  삭제 정보가 있는 객체
+ *  @return {boolean}                 -  삭제 정상 처리 여부
+ */
+const insertSpot = async (requestData, params) => {
+
+  try {
+    /**  connection 객체  */
+    const connection = await requestData.getConnection();
+
+    /**  query 문장       */
+    // const statement = Query(NAMESPACE.USER, 'insertSpot', params);
+    const statement = 'INSERT INTO drivespot ( uuid, create_date, title, del_flag, x_pos, y_pos, spot_name, spot_addr) VALUE (UUID(), NOW(),\'test\', false,\'' + params.x + '\',\'' + params.y + '\',\'' + params.place_name + '\',\'' + params.road_address_name + '\')';
+    const res = await connection.query(statement);
+    
+    // return res[DB_RESULT.ROW_FIRST][DB_RESULT.AFFECTED_ROWS] === DB_RESULT.ONE;
+    return res;
+  }
+  catch (e) {
+    // Logger.error(e.stack);
+    throw e;
+  }
+};
+
+/**
+ *  메뉴 List 조회
+ *  @param {RequestData} requestData  -  요청 데이터
+ *  @param  {Object} params           -  삭제 정보가 있는 객체
+ *  @return {boolean}                 -  삭제 정상 처리 여부
+ */
+const selectAllSpot = async (requestData, params) => {
+
+  try {
+    /**  connection 객체  */
+    const connection = await requestData.getConnection();
+
+    /**  query 문장       */
+    // const statement = Query(NAMESPACE.USER, 'insertSpot', params);
+    const statement = 'SELECT * FROM drivespot';
+    const res = await connection.query(statement);
+    
+    // return res[DB_RESULT.ROW_FIRST][DB_RESULT.AFFECTED_ROWS] === DB_RESULT.ONE;
+    return res[0];
+  }
+  catch (e) {
+    // Logger.error(e.stack);
+    throw e;
+  }
+};
+
 module.exports = {
   selectUser                  ,
   viewAuth                    ,
@@ -695,4 +748,6 @@ module.exports = {
   deleteAllComment,
   getUserManuList,
   test,
+  insertSpot,
+  selectAllSpot
 };

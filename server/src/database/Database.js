@@ -4,11 +4,11 @@ const mysql   = require('mysql2/promise');
  *  database connection pool 생성
  */
 let  pool = mysql.createPool({
-    host      : 'localhost',
+    host      : '127.0.0.1',
     port      : '3306' ,
-    database  : 'cruisemate' ,
+    database  : 'cruisemate',
     user      : 'root' ,
-    password  : 'dkssud!123' ,
+    password  : '!hyngXxob-616' ,
     connectionLimit : process.env.DB_CONNECTION_LIMIT ,
     multipleStatements : true
   }
@@ -47,6 +47,7 @@ pool.on('connection', () => {
  * @returns {Object} connection 객체
  */
 const getPoolConnection = async () => {
+  // const connection = await pool.getConnection();
   const connection = await pool.getConnection(async conn => conn);
   return connection;
 }
