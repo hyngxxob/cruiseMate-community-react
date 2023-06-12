@@ -3,56 +3,72 @@
     height: 100vh;
     width: 250px;
     position: fixed;
-    top: 56px;
+    top: 0;
     left: -250px;
-    transition: all 0.3s ease;
+    transform: translateX(-100%);
 }
 
 .sidenav--open {
-left: 0;
-top: 56px;
-width: 250px;
-transition: all 0.4s ease;
+    left: 0;
+    top: 56px;
+    width: 250px;
+    z-index: 1;
+    transform: translateX(0);
+    transition: transform 0.4s ease;
 }
 
 .sidenav ul {
-list-style: none;
-padding: 0;
-margin: 0;
-text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .sidenav ul li {
-margin: 15px 0;
+    margin: 15px 0;
 }
 
 .sidenav ul li a {
-display: block;
-color: #fff;
-font-size: 18px;
-text-decoration: none;
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
 }
 
 .nav-toggle {
-background-color: transparent;
-border: none;
-cursor: pointer;
-font-size: 25px;
-color: #fff;
-position: fixed;
-top: 20px;
-left: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: #fff;
+    position: fixed;
+    top: 20px;
+    left: 20px;
 }
 
 .nav-toggle:focus {
-outline: none;
+    outline: none;
 }
 
 .nav-toggle i {
-padding-right: 10px;
+    padding-right: 10px;
 }
 
-.sidenav--open--homecontents {
-margin-left: 250px;
-transition: all 0.3s ease;
+.sidenav--open--contents {
+    /* margin-left: 250px; */
+    position: absolute;
+    top: 56px;
+    width: 100%;
+    height: calc(100% - 56px);
+    /* padding-top: 56px; */
+    transform: translateX(0);
+}
+
+.sidenav--close--contents {
+    /* padding-top: 56px; */
+    position: absolute;
+    top: 56px;
+    width: 100%;
+    height: calc(100% - 56px);
+    transform: translateX(0);
 }

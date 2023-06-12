@@ -16,25 +16,19 @@ function App() {
   };
   return (
     <div className="App">
-      <Navbar bg="light" variant="light">
-        <Container>
+      <div className="Navigation-Container">
+      <Navbar bg="light" variant="light" >
+          <>
           {/* 컬랩스 버튼 */}
-          <Button variant="outline-secondary" onClick={toggleNav}>
+          <Button variant="outline-secondary" style={{marginLeft : '8px'}} onClick={toggleNav}>
             <span className="navbar-toggler-icon"></span>
           </Button>
 
           {/* 네비게이션 로고 */}
-          <Navbar.Brand href="#home">Offcanvas Navbar</Navbar.Brand>
-
-          {/* 네비게이션 메뉴 */}
-          <Nav className="ms-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <Nav.Link href="#dropdown">Dropdown</Nav.Link>
-          </Nav>
-        </Container>
+          <Navbar.Brand style={{margin : '0 8px'}} href="/">CruiseMate</Navbar.Brand>
+          </>
       </Navbar>
-
+      </div>
       {/* 네비게이션 영역 */}
       <SideNavigation isNavOpen={isNavOpen} toggleNav={toggleNav} />
 
