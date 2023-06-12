@@ -39,7 +39,7 @@ const UserModel = require('../../model/user/UserModel');
  * @returns {ResponseData} 응답 데이터
  */
 const signUp = async (req, res) => {
-
+// test
   /**  요청 데이터  */
   let requestData = new RequestData(req);
 
